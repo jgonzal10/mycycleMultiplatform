@@ -17,7 +17,13 @@ namespace MyCycle.Services
             periods = new List<Period>();
             var mockPeriods = new List<Period>
             {
-
+                new Period {Id=Guid.NewGuid().ToString(), InitialDate="20/12/2017",Finaldate=""},
+                new Period {Id=Guid.NewGuid().ToString(), InitialDate="18/01/2018",Finaldate=""},
+                new Period {Id=Guid.NewGuid().ToString(), InitialDate="14/02/2018",Finaldate=""},
+                new Period {Id=Guid.NewGuid().ToString(), InitialDate="14/03/2018",Finaldate=""},
+                new Period {Id=Guid.NewGuid().ToString(), InitialDate="08/04/2018",Finaldate=""},
+                new Period {Id=Guid.NewGuid().ToString(), InitialDate="05/05/2018",Finaldate=""},
+                new Period {Id=Guid.NewGuid().ToString(), InitialDate="30/05/2018",Finaldate=""}
             };
 
             foreach (var period in mockPeriods)

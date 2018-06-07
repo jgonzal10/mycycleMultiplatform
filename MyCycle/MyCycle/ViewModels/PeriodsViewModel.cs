@@ -1,7 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using MyCycle.Models;
+using MyCycle.Views;
 using Xamarin.Forms;
 
 namespace MyCycle.ViewModels
@@ -15,13 +18,13 @@ namespace MyCycle.ViewModels
         {
             Title = "Periods";
             Periods = new ObservableCollection<Period>();
-            //    LoadPeriodsCommand = new Command(async () => await ExecuteLoadPeriodCommand());
+                LoadPeriodsCommand = new Command(async () => await ExecuteLoadPeriodCommand());
 
-            /*   MessagingCenter.Subscribe<NewPeriodPage, Item>(this, "AddPeriod", async (obj, period) =>
+            MessagingCenter.Subscribe<NewPeriodPage, Period>(this, "AddPeriod", async (obj, period) =>
                {
                    var _period = period as Period;
                    Periods.Add(_period);
-                   await DataStore.AddItemAsync(_period);
+                await DataStoreP.AddPeriodAsync(_period);
                });
            }
 
@@ -36,7 +39,7 @@ namespace MyCycle.ViewModels
                try
                {
                    Periods.Clear();
-                   var periods = await DataStore.GetPeriodsAsync(true);
+                var periods = await DataStoreP.GetPeriodsAsync(true);
                    foreach (var period in periods)
                    {
                        Periods.Add(period);
@@ -51,7 +54,7 @@ namespace MyCycle.ViewModels
                    IsBusy = false;
                }
            }
-   */
+
         }
     }
-}
+

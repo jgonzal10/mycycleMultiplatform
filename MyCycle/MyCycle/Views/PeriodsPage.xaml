@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyCycle.Views.PeriodsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddPeriod_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="add.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="PeriodListView" ItemsSource="{Binding Periods}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadPeriodsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" >

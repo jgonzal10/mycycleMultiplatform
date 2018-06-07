@@ -14,11 +14,17 @@ namespace MyCycle.Views
             BindingContext = periodModel = new PeriodsViewModel();
         }
 
+        async void AddPeriod_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new NewPeriodPage()));
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-
+            if (periodModel.Periods.Count == 0)
+                periodModel.LoadPeriodsCommand.Execute(null);
         }
     }
 }
